@@ -41,17 +41,46 @@ A self-biased, current-mode Bandgap Reference provides a temperature-independent
 
 ## 📊 Simulation Results
 
-### Stability Analysis (Bode Plot)
-* **Worst Case (100µA):** PM = 67° (Stable)
-* **Best Case (10mA):** PM = 100° (Over-damped)
+### 1. Regulation Performance
+**Line Regulation**
+* Validated input voltage sweep from 1.4V to 2.0V.
+* Output stabilizes at 1.6V with a dropout of ~70mV.
 
-*[Insert Screenshot of Bode Plot Here]*
+![Line Regulation](plots/Line%20regulation.png)
 
-### Transient Response
+**Load Regulation**
+* Output voltage deviation is minimal (<16mV) across the full load range.
+
+![Load Regulation](plots/Load%20Regulation.png)
+
+---
+
+### 2. Frequency Response (PSRR)
+**Power Supply Rejection Ratio**
+* **DC Rejection:** >42 dB.
+* High-frequency rejection behavior is consistent with capless topology limitations.
+
+*Best Case:*
+![PSRR Best Case](plots/PSRR_best_case.png)
+
+*Worst Case:*
+![PSRR Worst Case](plots/PSRR_worst_case.png)
+
+---
+
+### 3. Transient Response
 * **Load Step:** 0.1mA $\rightarrow$ 10mA (Rise time = 100ns)
 * **Undershoot:** < 80 mV (<5% deviation)
 * **Settling Time:** Fast recovery due to slew-rate optimized $I_q$.
 
-*[Insert Screenshot of Transient Response Here]*
+![Transient Response](plots/Transient%20response.png)
 
-## 📂 Repository Structure
+---
+
+### 4. Bandgap Reference (BGR) Results
+**Output Voltage & Startup**
+* Stable 1.2V output reference.
+* Validated startup circuit performance to prevent latch-up.
+
+![BGR Output](plots/BGR%20output.png)
+![Startup](plots/startup.png)
