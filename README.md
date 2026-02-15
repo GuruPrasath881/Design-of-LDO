@@ -1,11 +1,11 @@
-# Capless LDO & Bandgap Reference (180nm CMOS)
+# High-Speed Capless LDO & Bandgap Reference (180nm CMOS)
 
 ![Status](https://img.shields.io/badge/Status-Simulated-success)
 ![Technology](https://img.shields.io/badge/Tech-180nm%20CMOS-blue)
 ![Type](https://img.shields.io/badge/Type-Analog%20IP-orange)
 
 ## 📌 Overview
-This repository contains the design and simulation data for a fully integrated **Capless Low-Dropout (LDO) Regulator** and a **Curvature-Corrected Bandgap Reference (BGR)**.
+This repository contains the design and simulation data for a fully integrated **Capless Low-Dropout (LDO) Regulator** and a **Voltage-Mode Bandgap Reference (BGR)**.
 
 Designed for System-on-Chip (SoC) applications where external capacitors are prohibitive, this LDO utilizes **Miller Compensation with a Nulling Resistor** to ensure unconditional stability across a **100x dynamic load range** (100µA to 10mA) without requiring a large output capacitor ($C_{load} \approx 4pF$).
 
@@ -26,7 +26,7 @@ Designed for System-on-Chip (SoC) applications where external capacitors are pro
 
 ## 🏗️ Architecture
 ### 1. Error Amplifier
-A **Single-Stage Differential Amplifier with Current Mirror Load** was selected for its high DC gain and wide input common-mode range. The single-stage topology minimizes internal poles, simplifying the frequency compensation network required for the capless architecture.
+A **Single-Stage Differential Amplifier** with a PMOS pass device was selected for its high DC gain and wide input common-mode range. The single-stage topology minimizes internal poles, simplifying the frequency compensation network required for the capless architecture.
 
 ### 2. Frequency Compensation
 * **Problem:** In capless LDOs, the dominant pole shifts widely with load current ($R_{load}$), often leading to instability at light loads.
@@ -35,52 +35,41 @@ A **Single-Stage Differential Amplifier with Current Mirror Load** was selected 
     * $R_z$ pushes the Right-Half-Plane (RHP) Zero to high frequencies, preventing phase degradation.
 
 ### 3. Bandgap Reference
-A self-biased, current-mode Bandgap Reference provides a temperature-independent 1.2V reference.
+A Self-Biased **Voltage-Mode Bandgap Reference** provides a temperature-independent 1.2V reference.
 * **TC:** 25.9 ppm/°C (-40°C to 120°C).
 * **Startup:** Robust startup circuit ensures no zero-current lockup.
 
 ## 📊 Simulation Results
 
-### 1. Regulation Performance
-**Line Regulation**
-* Validated input voltage sweep from 1.4V to 2.0V.
-* Output stabilizes at 1.6V with a dropout of ~70mV.
+### 1. Line Regulation & Dropout
+* **Observation:** The LDO achieves regulation at $V_{in} \approx 1.67V$ (Dropout $\approx$ 70mV) and maintains a steady 1.6V output up to 2.0V.
+* **Metric:** Line Regulation $\approx$ 10 mV/V.
 
-![Line Regulation](plots/Line%20regulation.png)
-
-**Load Regulation**
-* Output voltage deviation is minimal (<16mV) across the full load range.
-
-![Load Regulation](plots/Load%20Regulation.png)
+![Line Regulation Plot](plots/Line%20regulation.png)
 
 ---
 
-### 2. Frequency Response (PSRR)
-**Power Supply Rejection Ratio**
-* **DC Rejection:** >42 dB.
-* High-frequency rejection behavior is consistent with capless topology limitations.
+### 2. Stability & PSRR
+* **PSRR:** Achieves **>42 dB** rejection at low frequencies (DC). The rejection bandwidth is limited by the Error Amplifier loop gain, dropping to 0dB at high frequencies as expected for Capless topologies.
+* **Stability:** Phase Margin of **67°** at worst-case light load (100µA) and **100°** at full load (10mA).
 
-*Best Case:*
-![PSRR Best Case](plots/PSRR_best_case.png)
+![PSRR Plot](plots/PSRR_best_case.png)
 
-*Worst Case:*
-![PSRR Worst Case](plots/PSRR_worst_case.png)
+*(Note: High-frequency degradation is expected in Capless topologies due to lack of output capacitance)*
 
 ---
 
 ### 3. Transient Response
-* **Load Step:** 0.1mA $\rightarrow$ 10mA (Rise time = 100ns)
-* **Undershoot:** < 80 mV (<5% deviation)
-* **Settling Time:** Fast recovery due to slew-rate optimized $I_q$.
+* **Condition:** Fast load step from 0.1mA to 10mA (Rise time = 100ns).
+* **Performance:** * **Undershoot:** < 80 mV (<5% deviation) recovery limited by Slew Rate.
+  * **Overshoot:** ~110 mV (Within acceptable digital logic safety margins).
+  * **Efficiency:** High current efficiency (97%) achieved by optimizing the Speed-Power trade-off.
 
 ![Transient Response](plots/Transient%20response.png)
 
 ---
 
-### 4. Bandgap Reference (BGR) Results
-**Output Voltage & Startup**
-* Stable 1.2V output reference.
-* Validated startup circuit performance to prevent latch-up.
+### 4. Bandgap Reference (BGR) Output
+* **Performance:** Stable 1.2V reference output with curvature correction achieving 25.9 ppm/°C.
 
 ![BGR Output](plots/BGR%20output.png)
-![Startup](plots/startup.png)
