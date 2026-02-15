@@ -11,18 +11,18 @@ Designed for System-on-Chip (SoC) applications where external capacitors are pro
 
 ## ⚡ Key Specifications
 
-| Parameter | Value | Condition |
-| :--- | :--- | :--- |
-| **Technology** | 180nm | UMC180 CMOS |
-| **Input Voltage ($V_{in}$)** | 1.8 V | Nominal |
-| **Output Voltage ($V_{out}$)** | 1.6 V | Regulated |
-| **Dropout Voltage** | < 100 mV | @ 10mA Full Load |
-| **Max Load Current** | 10 mA | Industrial Standard |
-| **Quiescent Current ($I_q$)** | ~400 µA | Optimized for Slew Rate |
-| **Current Efficiency** | 97% | @ Full Load |
-| **Phase Margin** | **67°** | @ Worst-Case (0.1mA) |
-| **Load Regulation** | 0.8 mV/mA | 0.1mA to 10mA Step |
-| **Line Regulation** | 10 mV/V | 1.7V to 2.0V Sweep |
+| Parameter | Value |
+| :--- | :--- |
+| **Technology** | 180nm |
+| **Input Voltage ($V_{in}$)** | 1.8 V |
+| **Output Voltage ($V_{out}$)** | 1.6 V |
+| **Dropout Voltage** | < 100 mV |
+| **Max Load Current** | 10 mA |  |
+| **Quiescent Current ($I_q$)** | ~400 µA |
+| **Current Efficiency** | 97% |
+| **Phase Margin** | **67°** |
+| **Load Regulation** | 0.8 mV/mA |
+| **Line Regulation** | 10 mV/V |
 
 ## 🏗️ Architecture
 ### 1. LDO Architecture
