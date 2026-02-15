@@ -36,7 +36,7 @@ A **Single-Stage Differential Amplifier with Current Mirror Load** was selected 
 
 ### 3. Bandgap Reference
 A self-biased, current-mode Bandgap Reference provides a temperature-independent 1.2V reference.
-* **TC:** 12.5 ppm/°C (-40°C to 120°C).
+* **TC:** 25.9 ppm/°C (-40°C to 120°C).
 * **Startup:** Robust startup circuit ensures no zero-current lockup.
 
 ## 📊 Simulation Results
