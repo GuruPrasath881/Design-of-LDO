@@ -1,6 +1,6 @@
 # Capless LDO & Bandgap Reference (180nm CMOS)
 
-![Status](https://img.shields.io/badge/Status-Silicon%20Verified%20(Simulated)-success)
+![Status](https://img.shields.io/badge/Status-Simulated-success)
 ![Technology](https://img.shields.io/badge/Tech-180nm%20CMOS-blue)
 ![Type](https://img.shields.io/badge/Type-Analog%20IP-orange)
 
