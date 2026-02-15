@@ -25,8 +25,10 @@ Designed for System-on-Chip (SoC) applications where external capacitors are pro
 | **Line Regulation** | 10 mV/V | 1.7V to 2.0V Sweep |
 
 ## 🏗️ Architecture
-### 1. Error Amplifier
+### 1. LDO Architecture
 A **Single-Stage Differential Amplifier** with a PMOS pass device was selected for its high DC gain and wide input common-mode range. The single-stage topology minimizes internal poles, simplifying the frequency compensation network required for the capless architecture.
+![LDO Schematic](plots/LDO%20old.png)
+
 
 ### 2. Frequency Compensation
 * **Problem:** In capless LDOs, the dominant pole shifts widely with load current ($R_{load}$), often leading to instability at light loads.
@@ -38,6 +40,7 @@ A **Single-Stage Differential Amplifier** with a PMOS pass device was selected f
 A Self-Biased **Voltage-Mode Bandgap Reference** provides a temperature-independent 1.2V reference.
 * **TC:** 25.9 ppm/°C (-40°C to 120°C).
 * **Startup:** Robust startup circuit ensures no zero-current lockup.
+![BGR Schematic](plots/BGR%20(2).png)
 
 ## 📊 Simulation Results
 
