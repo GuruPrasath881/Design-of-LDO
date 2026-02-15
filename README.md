@@ -13,7 +13,7 @@ Designed for System-on-Chip (SoC) applications where external capacitors are pro
 
 | Parameter | Value | Condition |
 | :--- | :--- | :--- |
-| **Technology** | 180nm CMOS | Generic PDK |
+| **Technology** | 180nm | UMC180 CMOS |
 | **Input Voltage ($V_{in}$)** | 1.8 V | Nominal |
 | **Output Voltage ($V_{out}$)** | 1.6 V | Regulated |
 | **Dropout Voltage** | < 100 mV | @ 10mA Full Load |
