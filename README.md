@@ -41,11 +41,12 @@ A Self-Biased **Voltage-Mode Bandgap Reference** provides a temperature-independ
 
 ## 📊 Simulation Results
 
-### 1. Line Regulation & Dropout
+### 1. Regulation & Dropout
 * **Observation:** The LDO achieves regulation at $V_{in} \approx 1.67V$ (Dropout $\approx$ 70mV) and maintains a steady 1.6V output up to 2.0V.
-* **Metric:** Line Regulation $\approx$ 10 mV/V.
+* **Metric:** Line Regulation $\approx$ 10 mV/V and 0.8 mV/mA Load Regulation.
 
 ![Line Regulation Plot](plots/Line%20regulation.png)
+![Load Regulation Plot](plots/Load%20regulation.png)
 
 ---
 
@@ -53,9 +54,11 @@ A Self-Biased **Voltage-Mode Bandgap Reference** provides a temperature-independ
 * **PSRR:** Achieves **>42 dB** rejection at low frequencies (DC). The rejection bandwidth is limited by the Error Amplifier loop gain, dropping to 0dB at high frequencies as expected for Capless topologies.
 * **Stability:** Phase Margin of **67°** at worst-case light load (100µA) and **100°** at full load (10mA).
 
-![PSRR Plot](plots/PSRR_best_case.png)
+![PSRR Best case Plot](plots/PSRR_best_case.png)
+![PSRR Worst case Plot](plots/PSRR_worst_case.png)
 
-*(Note: High-frequency degradation is expected in Capless topologies due to lack of output capacitance)*
+
+*(Note: High-frequency degradation in Capless topologies due to lack of output capacitance)*
 
 ---
 
@@ -71,5 +74,4 @@ A Self-Biased **Voltage-Mode Bandgap Reference** provides a temperature-independ
 
 ### 4. Bandgap Reference (BGR) Output
 * **Performance:** Stable 1.2V reference output with curvature correction achieving 25.9 ppm/°C.
-
 ![BGR Output](plots/BGR%20output.png)
