@@ -28,7 +28,7 @@ Designed for System-on-Chip (SoC) applications where external capacitors are pro
 ### 1. Error Amplifier
 A **Single-Stage Differential Amplifier with Current Mirror Load** was selected for its high DC gain and wide input common-mode range. The single-stage topology minimizes internal poles, simplifying the frequency compensation network required for the capless architecture.
 
-### 2. Frequency Compensation (The "Stability Secret")
+### 2. Frequency Compensation
 * **Problem:** In capless LDOs, the dominant pole shifts widely with load current ($R_{load}$), often leading to instability at light loads.
 * **Solution:** Implemented **Miller Compensation ($C_c$)** with a **Nulling Resistor ($R_z$)**.
     * $C_c$ performs pole-splitting, locking the dominant pole at the Gate of the Pass Transistor.
