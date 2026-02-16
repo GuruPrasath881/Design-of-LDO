@@ -49,7 +49,7 @@ A Self-Biased **Voltage-Mode Bandgap Reference** provides a temperature-independ
 * **Metric:** Line Regulation $\approx$ 10 mV/V and 0.8 mV/mA Load Regulation.
 
 ![Line Regulation Plot](plots/Line%20regulation.png)
-![Load Regulation Plot](plots/Load%20regulation.png)
+![Load Regulation Plot](plots/Load%20Regulation.png)
 
 ---
 
