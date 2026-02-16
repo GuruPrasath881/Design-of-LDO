@@ -61,7 +61,6 @@ A Self-Biased **Voltage-Mode Bandgap Reference** provides a temperature-independ
 ![PSRR Worst case Plot](plots/PSRR_worst_case.png)
 
 
-*(Note: High-frequency degradation in Capless topologies due to lack of output capacitance)*
 
 ---
 
